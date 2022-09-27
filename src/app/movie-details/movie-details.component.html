@@ -1,0 +1,10 @@
+<div class="video-container">
+  <iframe
+    *ngIf="trailer"
+    class="m-4"
+    [src]="trailer | safe"
+    title="YouTube video player"
+    frameborder="0"
+    allowfullscreen
+  ></iframe>
+</div>

@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+}
+
+app-header {
+  position: sticky;
+  top: 0;
+}
+
+.p-menubar {
+  border-radius: 0;
+}
+
+.p-carousel-indicators {
+  display: none !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .p-carousel-next,
+  .p-carousel-prev {
+    display: none !important;
+  }
+}

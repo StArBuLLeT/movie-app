@@ -1,0 +1,49 @@
+<p-dialog
+  [header]="movieDetails.title"
+  [(visible)]="displayResponsiveDialog"
+  [breakpoints]="{ '960px': '75vw' }"
+  [style]="{ width: '80vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  [modal]="true"
+>
+  <iframe
+    *ngIf="trailer"
+    width="100%"
+    height="315"
+    [src]="trailer | safe"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+  <p-galleria
+    [value]="movieDetails.images"
+    [responsiveOptions]="responsiveOptions"
+    panelWidth="500" panelHeight="313" showCaption="true"
+    [containerStyle]="{ 'max-width': '800px' }"
+    [numVisible]="5"
+    *ngIf="showGalleria"
+  >
+    <ng-template pTemplate="item" let-item>
+      <img [src]="item" style="width: 100%; display: block" />
+    </ng-template>
+    <ng-template pTemplate="thumbnail" let-item>
+      <div class="grid grid-nogutter justify-content-center">
+        <img [src]="item" style="width: 100%; display: block" />
+      </div>
+    </ng-template>
+  </p-galleria>
+  <ng-template pTemplate="footer">
+    <p-button
+      (click)="displayResponsiveDialog = false"
+      label="No"
+      styleClass="p-button-text"
+    ></p-button>
+    <p-button
+      (click)="displayResponsiveDialog = false"
+      label="Yes"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
+</p-dialog>

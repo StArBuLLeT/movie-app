@@ -1,0 +1,32 @@
+<p-carousel
+  *ngIf="appStore.popularMovies.length"
+  [value]="appStore.popularMovies"
+  [numVisible]="6"
+  [numScroll]="1"
+  [circular]="false"
+  [responsiveOptions]="responsiveOptions"
+>
+  <ng-template pTemplate="header">
+    <p class="header">Popular Movies</p>
+  </ng-template>
+  <ng-template let-popularMovie pTemplate="item">
+    <div
+      class="product-item"
+      (click)="showDetailsPage(popularMovie)"
+    >
+      <div class="product-item-content">
+        <div>
+          <img
+            src="{{ appStore.tmdbConfiguration.images.secure_base_url }}/original{{ popularMovie.poster_path }}"
+            [alt]="popularMovie.title"
+            class="product-image"
+          />
+        </div>
+        <div>
+          <p class="popular-movie-title">{{ popularMovie.title }}</p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>
+<!-- <app-movie-dialog #appMovieDialog ></app-movie-dialog> -->

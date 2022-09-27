@@ -1,0 +1,8 @@
+input {
+  display: block;
+}
+
+input,
+input::placeholder {
+  font: 16px;
+}
