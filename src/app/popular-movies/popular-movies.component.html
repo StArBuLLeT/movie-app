@@ -1,3 +1,4 @@
+<app-loaders *ngIf="!appStore.popularMovies.length"></app-loaders>
 <p-carousel
   *ngIf="appStore.popularMovies.length"
   [value]="appStore.popularMovies"

@@ -1,5 +1,5 @@
 <app-header></app-header>
 
-<app-search-movie-results *ngIf="appStore.searchMovieResults.length"></app-search-movie-results>
+<app-search-movie-results *ngIf="appStore.searchMovieTitle.length"></app-search-movie-results>
 
-<router-outlet *ngIf="!appStore.searchMovieResults.length"></router-outlet>
+<router-outlet *ngIf="!appStore.searchMovieTitle.length"></router-outlet>

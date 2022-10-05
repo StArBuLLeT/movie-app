@@ -11,5 +11,6 @@ export class AppStore {
   @observable show = false;
   @observable searchMovieTitle = '';
   @observable searchMovieResults: Array<any> = [];
+  @observable searchingMovie = false;
   @observable selectedMovie: { [key: string]: any } = {};
 }

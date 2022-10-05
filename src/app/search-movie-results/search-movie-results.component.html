@@ -1,19 +1,22 @@
-<p-card
-  *ngFor="let searchMovie of appStore.searchMovieResults"
-  [header]="searchMovie.title"
-  [style]="{ width: '360px' }"
-  styleClass="p-card-shadow inline-block p-4 center"
-  (click)="appMovieDialog.showResponsiveDialog(searchMovie)"
->
-  <ng-template pTemplate="header">
-    <img
-      alt="Card"
-      [src]="
-        appStore.tmdbConfiguration.images.secure_base_url +
-        '/original' +
-        searchMovie.poster_path
-      "
-    />
-  </ng-template>
-</p-card>
+<app-loaders *ngIf="appStore.searchingMovie"></app-loaders>
+<div *ngIf="!appStore.searchingMovie">
+  <p-card
+    *ngFor="let searchMovie of appStore.searchMovieResults"
+    [header]="searchMovie.title"
+    [style]="{ width: '360px' }"
+    styleClass="p-card-shadow inline-block p-4 center"
+    (click)="appMovieDialog.showResponsiveDialog(searchMovie)"
+  >
+    <ng-template pTemplate="header">
+      <img
+        alt="Card"
+        [src]="
+          appStore.tmdbConfiguration.images.secure_base_url +
+          '/original' +
+          searchMovie.poster_path
+        "
+      />
+    </ng-template>
+  </p-card>
+</div>
 <app-movie-dialog #appMovieDialog></app-movie-dialog>

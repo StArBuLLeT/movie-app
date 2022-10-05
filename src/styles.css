@@ -15,6 +15,21 @@ app-header {
   display: none !important;
 }
 
+.loading-prefill-container {
+  margin-top: 30px;
+}
+
+.loading-prefill {
+  margin: auto;
+  color: transparent;
+  background-image: linear-gradient(-100deg, #b9aeaa, #423f40);
+  animation: gradient 1.2s ease infinite;
+  background-size: 400% 400%;
+  width: 50%;
+  height: 2vh;
+  margin-top: 30px;
+}
+
 @media only screen and (max-width: 600px) {
   .p-carousel-next,
   .p-carousel-prev {

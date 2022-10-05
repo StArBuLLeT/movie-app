@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
     {
       label: 'Home',
       icon: 'pi pi-fw pi-home',
+      url: '/'
     },
   ];
 
@@ -30,6 +31,7 @@ export class HeaderComponent implements OnInit {
       this.searchMovieSubscription.unsubscribe();
     }
 
+    this.appStore.searchingMovie = true;
     this.searchMovieSubscription = this.tmdbService
       .searchMovie(searchValue)
       .subscribe((response) => {
@@ -37,6 +39,8 @@ export class HeaderComponent implements OnInit {
         if (results) {
           this.appStore.searchMovieResults = results;
         }
+
+        this.appStore.searchingMovie = false;
       });
   }
 }
