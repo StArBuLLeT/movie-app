@@ -1,0 +1,11 @@
+.movie-title {
+    font-size: calc(0.25em + 1vmin);
+}
+
+.poster {
+    width: 100%;
+}
+
+.grid {
+    margin: 20px
+}

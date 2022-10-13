@@ -35,8 +35,6 @@ export class PopularMoviesComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.appStore.tmdbConfiguration = await this.tmdbService.getConfiguration();
-
     if (!this.appStore.popularMovies.length) {
       const { results: popularMovies } =
         await this.tmdbService.getMostPopularMovies();

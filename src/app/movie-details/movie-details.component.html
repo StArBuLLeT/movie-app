@@ -1,3 +1,6 @@
+<app-loaders *ngIf="loading"></app-loaders>
+
+<h2 class="title">{{ appStore.selectedMovie['title'] }}</h2>
 <div class="video-container">
   <iframe
     *ngIf="trailer"
@@ -8,3 +11,9 @@
     allowfullscreen
   ></iframe>
 </div>
+
+<div class="movie-details-sections">
+  <p>
+    {{ appStore.selectedMovie['overview'] }}
+  </p>
+<div>

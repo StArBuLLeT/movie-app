@@ -11,6 +11,7 @@ import { TmdbService } from 'src/interfaces/tmdb/TmdbService';
 })
 export class MovieDetailsComponent implements OnInit {
   protected trailer = '';
+  protected loading = false;
   constructor(
     protected appStore: AppStore,
     private activatedRoute: ActivatedRoute,
@@ -19,6 +20,7 @@ export class MovieDetailsComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
+    this.loading = true
     const tmdbMovieId = Number(this.activatedRoute.snapshot.paramMap.get('movieId'))
     const imdbId = await this.getImdbMovieIdByTmdbMovieId(tmdbMovieId);
     const { items: movieImages } = await this.imdbService.getMovieImages(
@@ -28,7 +30,11 @@ export class MovieDetailsComponent implements OnInit {
     const { results: videos } = await this.tmdbService.getMovieTrailer(
       tmdbMovieId
     );
+    
     this.trailer = `https://www.youtube.com/embed/${videos[0].key}?autoplay=0&showinfo=0&controls=0"`;
+
+    this.appStore.selectedMovie = await this.tmdbService.getMovieDetailsById(tmdbMovieId)
+    this.loading = false;
   }
 
   async getImdbMovieIdByTmdbMovieId(tmdbMovieId: number): Promise<string> {
