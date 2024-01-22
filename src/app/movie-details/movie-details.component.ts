@@ -22,11 +22,7 @@ export class MovieDetailsComponent implements OnInit {
   async ngOnInit() {
     this.loading = true
     const tmdbMovieId = Number(this.activatedRoute.snapshot.paramMap.get('movieId'))
-    const imdbId = await this.getImdbMovieIdByTmdbMovieId(tmdbMovieId);
-    const { items: movieImages } = await this.imdbService.getMovieImages(
-      imdbId
-    );
-
+    
     const { results: videos } = await this.tmdbService.getMovieTrailer(
       tmdbMovieId
     );

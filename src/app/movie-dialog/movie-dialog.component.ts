@@ -61,7 +61,6 @@ export class MovieDialogComponent implements OnInit {
       tmdbMovieId
     );
     this.trailer = `https://www.youtube.com/embed/${videos[0].key}`;
-    console.log(this.trailer);
 
     if (movieImages) {
       movieImages.length = 5;

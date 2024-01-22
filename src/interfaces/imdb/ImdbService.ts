@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { firstValueFrom } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 import {
   HttpErrorHandler,
   HandleError,

@@ -38,6 +38,7 @@ export class PopularMoviesComponent implements OnInit {
     if (!this.appStore.popularMovies.length) {
       const { results: popularMovies } =
         await this.tmdbService.getMostPopularMovies();
+
       this.appStore.popularMovies = popularMovies;
     }
   }
